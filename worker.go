@@ -1,13 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"time"
 )
 
-var (
-	JobQueue chan Job
-)
+var JobQueue = make(chan Job)
 
 type Job struct {
 	url  string
@@ -36,8 +33,7 @@ func (w Worker) Start() {
 
 			select {
 			case job := <-w.JobChannel:
-				// job.Crawl(job.url)
-				fmt.Println(job)
+				job.Crawl(job.url)
 			case <-w.quit:
 				return
 			}

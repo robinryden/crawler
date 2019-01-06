@@ -10,7 +10,7 @@ func init() {
 }
 
 func main() {
-	urls := []string{"https://www.google.se", "http://www.strateg.se", "https://www.facebook.com"}
+	urls := []string{"https://www.google.se", "https://www.facebook.com"}
 
 	for _, url := range urls {
 		job := Job{
